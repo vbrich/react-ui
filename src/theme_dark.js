@@ -3,9 +3,9 @@ import { red } from '@material-ui/core/colors';
 import { createTheme } from '@material-ui/core/styles'; 
 
 // A custom theme for this app
-const theme = createTheme({
+const theme_dark = createTheme({
   palette: {
-    type: 'light',
+    type: 'dark',
     primary: {
       main: '#61dafb',
       light: '#61dafb',
@@ -20,7 +20,7 @@ const theme = createTheme({
       main: red.A400,
     },
     background: {
-      default: '#fff',
+      default: '#000',
     },
   },
   overrides: {
@@ -28,7 +28,7 @@ const theme = createTheme({
       root: {
         padding: '20px 10px',
         margin: '10px',
-        backgroundColor: '#fff', // 5d737e
+        backgroundColor: '#000', // 5d737e
       },
     },
     MuiButton: {
@@ -38,4 +38,4 @@ const theme = createTheme({
     },
   },
 });
-export default theme;
+export default theme_dark;
