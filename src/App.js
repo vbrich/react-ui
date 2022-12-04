@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import { Button, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import SwitchUI from '@material-ui/core/Switch'
 import { CustomThemeContext } from './themes/CustomThemeProvider'
+import Header from './components/Header';
 
 const drawerWidth = 240;
 
@@ -56,24 +56,22 @@ function App() {
   return (
     <div className={classes.root}>
     <Container maxWidth="sm" className="App">
-      <Paper>
+      <Header />
+      <Paper variant="outlined">
         <img src={logo} className="App-logo" alt="logo" />
-        <Typography variant="h4" component="h1" gutterBottom>
-          Material-UI
-        </Typography>
         <Button variant="contained" color="primary">
           Primary Button
         </Button>
         <Button variant="contained" color="secondary">
           Secondary Button
         </Button>
+        <FormGroup>
+          <FormControlLabel 
+            control={<SwitchUI checked={isDark} onChange={handleThemeChange} />} 
+            label="Theme" 
+          />
+        </FormGroup>
       </Paper>
-      <FormGroup>
-        <FormControlLabel 
-          control={<SwitchUI checked={isDark} onChange={handleThemeChange} />} 
-          label="Theme" 
-        />
-      </FormGroup>
     </Container>
     </div>
   );
