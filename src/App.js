@@ -56,6 +56,12 @@ function App() {
   return (
     <div className={classes.root}>
     <Container maxWidth="sm" className="App">
+      <FormGroup>
+        <FormControlLabel 
+          control={<SwitchUI checked={isDark} onChange={handleThemeChange} />} 
+          label="Theme" 
+        />
+      </FormGroup>
       <Paper>
         <img src={logo} className="App-logo" alt="logo" />
         <Typography variant="h4" component="h1" gutterBottom>
@@ -68,12 +74,6 @@ function App() {
           Secondary Button
         </Button>
       </Paper>
-      <FormGroup>
-        <FormControlLabel 
-          control={<SwitchUI checked={isDark} onChange={handleThemeChange} />} 
-          label="Theme" 
-        />
-      </FormGroup>
     </Container>
     </div>
   );
