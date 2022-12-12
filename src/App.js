@@ -2,19 +2,24 @@ import React, { useContext } from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Container from '@material-ui/core/Container';
+import { Box } from '@mui/material';
 import Typography from '@material-ui/core/Typography';
 import { Button, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import SwitchUI from '@material-ui/core/Switch'
 import { CustomThemeContext } from './themes/CustomThemeProvider'
+import IconButton from '@mui/material/IconButton';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+  },
+  myborderlessworld: {
+    border: "none", 
+    boxShadow: "none",
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -42,11 +47,11 @@ function App() {
 
   const classes = useStyles()
   const { currentTheme, setTheme } = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
+  let dark = Boolean(currentTheme === 'dark')
 
-  const handleThemeChange = (event) => {
-    const { checked } = event.target
-    if (checked) {
+  const changeTheme = () => {
+    dark = !dark;
+    if (dark) {
       setTheme('dark')
     } else {
       setTheme('normal')
@@ -55,14 +60,20 @@ function App() {
 
   return (
     <div className={classes.root}>
-    <Container maxWidth="sm" className="App">
-      <FormGroup>
-        <FormControlLabel 
-          control={<SwitchUI checked={isDark} onChange={handleThemeChange} />} 
-          label="Theme" 
-        />
-      </FormGroup>
-      <Paper>
+    <Container maxWidth="lg" className="App">
+    <Box component="div" p={1}></Box>  
+      <div className="Right">
+        <IconButton 
+          color="inherit" 
+          aria-label="light" 
+          size="small" 
+          onClick={() => {
+            changeTheme();
+          }}>
+          {dark ? <LightModeOutlinedIcon fontSize="inherit"/> : <NightlightOutlinedIcon fontSize="inherit"/>}  
+         </IconButton>
+      </div>
+      <Paper className={classes.myborderlessworld}>
         <img src={logo} className="App-logo" alt="logo" />
         <Typography variant="h4" component="h1" gutterBottom>
           Material-UI
