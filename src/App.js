@@ -5,43 +5,11 @@ import Container from '@material-ui/core/Container';
 import { Box } from '@mui/material';
 import Typography from '@material-ui/core/Typography';
 import { Button, Paper } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles'
 import { CustomThemeContext } from './themes/CustomThemeProvider'
 import IconButton from '@mui/material/IconButton';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
-
-const drawerWidth = 240;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  myborderlessworld: {
-    border: "none", 
-    boxShadow: "none",
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
-  title: {
-    flexGrow: 1,
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerContainer: {
-    overflow: 'auto',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}))
+import useStyles from './styles';
 
 function App() {
 
